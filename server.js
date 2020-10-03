@@ -6,6 +6,12 @@ const fastify = require('fastify')({
     reply.type('application/json').code(200)
     return { hello: 'world' }
   })
+
+  fastify.post('/new-game-content', async (request, reply) => {
+    reply.type('application/json').code(200)
+    console.log(request);
+    return { hello: 'world' }
+  })
   
   fastify.listen(4000, (err, address) => {
     if (err) throw err
