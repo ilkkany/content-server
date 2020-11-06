@@ -1,15 +1,17 @@
 const { gql } = require('apollo-server');
 
 const typeDefs = gql`
-  # Your schema will go here
-  type GameAssetProject {
-    projectName: String
-  }
+  scalar Void
   type Query {
-    test: String
+    test: String,
+    createGrid: Grid
+  }
+
+  type Grid {
+    grid: [[Int]]
   }
   type Mutation {
-    newGameAssetProject(name: String): GameAssetProject!
+    saveGrid(grid: [[Int!]]): Grid,
   }
 `;
 
