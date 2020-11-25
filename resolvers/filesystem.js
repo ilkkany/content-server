@@ -1,14 +1,9 @@
 const fs = require('fs');
 
-module.exports = function (data){
-    // parse json
-    // var arr = JSON.parse(data.grid);
-    
-    // stringify JSON Object
+module.exports = function (data) {
     var jsonContent = JSON.stringify([data.grid]);
-    console.log(jsonContent);
-    
-    fs.writeFile("output.json", jsonContent, 'utf8', function (err) {
+    var filename = data.biome + "_GRID_"+data.position +".json"
+    fs.writeFile(filename, jsonContent, 'utf8', function (err) {
         if (err) {
             console.log("An error occured while writing JSON Object to File.");
             return console.log(err);

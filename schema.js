@@ -11,7 +11,7 @@ const typeDefs = gql`
     grid: [[Int]]
   }
   type Mutation {
-    saveGrid(grid: [Int!]): Grid,
+    saveGrid(grid: [Int!], position: String, biome: String): Grid,
   }
 `;
 
