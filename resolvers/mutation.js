@@ -1,3 +1,5 @@
+const SaveJson = require('./filesystem');
+
 const resolvers = {
     Query: {
         test: () => "test",
@@ -26,8 +28,9 @@ const resolvers = {
     },
     Mutation: {
       saveGrid: (parent, args) => {
+          SaveJson(args);
           return {
-              grid: args.grid
+              grid: ""
           }
       },
     }
