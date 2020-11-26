@@ -1,4 +1,4 @@
-const SaveJson = require('./filesystem');
+const SaveJson = require('../filesystem');
 
 const resolvers = {
     Query: {
