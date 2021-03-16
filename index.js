@@ -1,7 +1,7 @@
 const { ApolloServer } = require('apollo-server');
 const resolvers = require('./resolvers');
 const typeDefs = require('./schema');
-
+require('dotenv').config()
 
 const server = new ApolloServer({
   cacheControl: {

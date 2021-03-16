@@ -2,7 +2,7 @@ const fs = require('fs');
 
 module.exports = function (data) {
     var toWrite = null;
-    var filename = "./output/grid_variants/"+data.biome.toLowerCase() + "/"+data.position.toLowerCase() +".json"
+    var filename = `${process.env.MONOGAME_GRID_VARIANTS_DIR}/${data.biome.toLowerCase()}/${data.position.toLowerCase()}.json`
 
     let rawdata = fs.readFileSync(filename);
     let existingData = JSON.parse(rawdata);
