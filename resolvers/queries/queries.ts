@@ -1,6 +1,4 @@
-const SaveJson = require('../filesystem');
-
-const resolvers = {
+export default {
     Query: {
         test: () => "test",
         createGrid: () => {
@@ -25,15 +23,5 @@ const resolvers = {
                 ]
             }
         }
-    },
-    Mutation: {
-      saveGrid: (parent, args) => {
-          SaveJson(args);
-          return {
-              grid: ""
-          }
-      },
     }
-};
-
-module.exports = resolvers;
+}

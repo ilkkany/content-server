@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+      "target": "esnext",
+      "module": "commonjs",
+      "esModuleInterop": true,
+      "moduleResolution": "node",
+      "forceConsistentCasingInFileNames": true,
+      "outDir": "./dist",
+      "typeRoots": ["node_modules/@types", "types"],
+      "allowSyntheticDefaultImports": true
+    },
+    "exclude": ["node_modules"],
+    "include": ["./**/*"]
+  }
