@@ -1,0 +1,3 @@
+extend type Mutation {
+    saveGrid(grid: [Int!], position: String, biome: String): Grid,
+}

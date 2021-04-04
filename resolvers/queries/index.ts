@@ -1,1 +1,1 @@
-export * as Queries from './queries';
+export { Query } from './queries';

@@ -2,10 +2,9 @@ import koa from 'koa';
 import koaRouter from 'koa-router';
 import koaBody from 'koa-bodyparser';
 import { ApolloServer } from 'apollo-server-koa';
-import { Queries, Mutations } from './resolvers';
-
-const typeDefs = require('./schema');
+import { Query, Mutation } from './resolvers';
 require('dotenv').config()
+const typeDefs = require('./schema')
 
 const server = new ApolloServer({
   cacheControl: {
@@ -13,8 +12,8 @@ const server = new ApolloServer({
   },
   typeDefs,
   resolvers: {
-      Query: Queries,
-      Mutation: Mutations,
+      Query: Query,
+      Mutation: Mutation,
   }
 });
 

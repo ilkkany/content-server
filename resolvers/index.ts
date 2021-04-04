@@ -1,2 +1,2 @@
-export { Mutations } from './mutations';
-export { Queries } from './queries';
+export { Mutation } from './mutations';
+export { Query } from './queries';
