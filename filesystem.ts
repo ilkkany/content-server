@@ -1,19 +1,28 @@
 import fs from 'fs';
 
-module.exports = function (data) {
+export const saveGridToFile = (data) => {
     const file = `${process.env.MONOGAME_GRID_VARIANTS_DIR}/${data.biome.toLowerCase()}/${data.position.toLowerCase()}.json`
+    try {
+        let nextFileContents = null;
+        const rawdata = fs.readFileSync(file, 'utf8');
+        const existingData = JSON.parse(rawdata);
 
-    const rawdata = fs.readFileSync(file, 'utf8');
-    const fileContent = JSON.parse(rawdata);
-
-    const nextFileContents = fileContent.length > 0 ? [...fileContent].push(data.grid) : [data.grid];
-    
-    fs.writeFile(file, JSON.stringify(nextFileContents), 'utf8', function (err) {
-        if (err) {
-            console.log("An error occured while writing JSON Object to File.");
-            return console.log(err);
+        if (existingData.length > 0) {
+            nextFileContents = existingData
+            nextFileContents.push(data.grid);
+        } else {
+            nextFileContents = [data.grid];
         }
-    
-        console.log("JSON file has been saved.");
-    });
+
+        fs.writeFile(file, JSON.stringify(nextFileContents), 'utf8', function (err) {
+            if (err) {
+                console.log("An error occured while writing JSON Object to File.");
+                return console.log(err);
+            }
+        
+            console.log("JSON file has been saved.");
+        });
+    } catch (e) {
+        console.error(e);
+    }
 }

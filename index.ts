@@ -5,6 +5,7 @@ import { ApolloServer } from 'apollo-server-koa';
 import { Query, Mutation } from './resolvers';
 require('dotenv').config()
 const typeDefs = require('./schema')
+const cors = require('@koa/cors');
 
 const server = new ApolloServer({
   cacheControl: {
@@ -22,6 +23,7 @@ const router = new koaRouter();
 const PORT = 3000;
 
 app.use(koaBody());
+app.use(cors())
 
 router.post("/graphql", server.getMiddleware());
 router.get("/graphql", server.getMiddleware());

@@ -1,8 +1,8 @@
-const SaveJson = require('../../filesystem');
+import { saveGridToFile } from '../../filesystem'
 
 export const Mutation = {
     saveGrid: (parent, args) => {
-        SaveJson(args);
+        saveGridToFile(args);
         return {
             grid: ""
         }
